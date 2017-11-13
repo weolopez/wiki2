@@ -1,0 +1,12 @@
+<section id="page">
+    <input #commandInput id="command-input" type="text" (blur)="executeCommand()" [hidden]="(commandInput.value.length<1)">
+
+
+    <ul>
+      <li (click)="page.isEdit = true" *ngFor="let page of pageObservable | async">
+        <!-- <input [hidden]="editTitle" class="page-input" type="text" [(ngModel)]="page.title" placeholder="enter title"> -->
+        <textarea (blur)="update(page.key, page)" [hidden]="!page.isEdit" [(ngModel)]="page.html"></textarea>
+        <runtime-content [style]="page.style" [template]="page.html"></runtime-content>
+      </li>
+    </ul>
+</section>
