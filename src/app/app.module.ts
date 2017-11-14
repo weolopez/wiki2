@@ -31,7 +31,7 @@ export const AppRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
