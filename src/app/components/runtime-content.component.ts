@@ -1,3 +1,7 @@
+/**
+Original source: https://github.com/DenisVuyka/ng2-dynamic-content/blob/master/app/runtime-content.component.ts
+from blog post: https://medium.com/@DenysVuika/dynamic-content-in-angular-2-3c85023d9c36
+*/
 import {
     Component, Input, SimpleChanges, OnChanges, OnInit,
     ViewChild, ViewContainerRef, ComponentRef,
