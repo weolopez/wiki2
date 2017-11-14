@@ -21,7 +21,6 @@ export const AppRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    RuntimeContentComponent,
     WikiComponent,
    // JsonComponent
   ],

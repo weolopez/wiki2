@@ -17,6 +17,9 @@ export class JsonComponent implements OnInit, OnChanges {
   constructor(public http: HttpClient) { }
 
   ngOnInit() {
+    if (!this.map) {
+      this.map = 'value => value';
+    }
     this.mapfn = eval(this.map);
     this.http.get(this.src)
     .map(this.mapfn)
