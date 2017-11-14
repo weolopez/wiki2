@@ -12,8 +12,6 @@ import { AppComponent } from './app.component';
 import { RuntimeContentComponent } from './components/runtime-content.component';
 import { WikiComponent } from './pages/wiki/wiki.component';
 import { SharedModule } from './shared.module';
-import { JsonComponent } from './components/json/json.component';
-
 
 export const AppRoutes: Routes = [
   { path: 'wiki', component: WikiComponent },

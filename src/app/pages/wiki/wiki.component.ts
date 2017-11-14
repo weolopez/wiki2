@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 interface Page {
-  title: string;
+  title?: string;
+  html?: string;
 }
 @Component({
   selector: 'app-wiki',
@@ -36,7 +37,7 @@ export class WikiComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pageRef = this.db.list('/' + this.pageTitle);
+    this.pageRef = this.db.list('/wiki/' + this.pageTitle);
     this.pageObservable = this.pageRef.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
@@ -58,5 +59,9 @@ export class WikiComponent implements OnInit {
     page.isEdit = false;
 
     this.pageRef.update(key, page);
+  }
+  add() {
+    const article = {html: '<h1>New</h1>'};
+    this.pageRef.push(article);
   }
 }

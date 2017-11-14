@@ -18,6 +18,7 @@ import { SharedModule } from '../shared.module';
 export class RuntimeContentComponent implements OnChanges {
 
     @Input('template') template: string;
+    @Input('data') data: any;
     @ViewChild('container', { read: ViewContainerRef })
     container: ViewContainerRef;
 
@@ -48,7 +49,14 @@ export class RuntimeContentComponent implements OnChanges {
     }
 
     private createComponentFactorySync(compiler: Compiler, metadata: Component, componentClass: any): ComponentFactory<any> {
-        const cmpClass = componentClass || class RuntimeComponent { data = {name: 'Denys'}; };
+        const cmpClass = componentClass ||
+              class RuntimeComponent {
+                  data: any;
+                  jparse(json) {
+                    return JSON.parse(json);
+                  }
+              };
+        cmpClass.data = this.data;
         const decoratedCmp = Component(metadata)(cmpClass);
 
         @NgModule({

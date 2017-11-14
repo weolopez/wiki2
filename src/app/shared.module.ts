@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { JsonComponent } from './components/json/json.component';
-
+import { HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     JsonComponent,
@@ -9,6 +9,7 @@ import { JsonComponent } from './components/json/json.component';
     JsonComponent
   ],
   imports: [
+    HttpClientModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
